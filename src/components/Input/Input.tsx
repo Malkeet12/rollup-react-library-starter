@@ -3,12 +3,12 @@ import "./Input.scss";
 import { Input, InputProps } from "antd";
 
 export interface InputTextProps extends InputProps {
-    /**
-     * 
-     */
+  /**
+   *
+   */
 }
 
-const InputText:React.FC<InputTextProps> = (props: InputTextProps) => {
+const InputText = (props: InputTextProps) => {
   return <Input type="text" {...props} />;
 };
 
