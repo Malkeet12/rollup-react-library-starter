@@ -1,30 +1,15 @@
-import React, { forwardRef } from "react";
-import { Input as AntdInput, InputRef, theme } from "antd";
-import { StyledCaption, StyledLabel } from "./input.styles";
-import { InputProps } from "./input.types";
+import React from "react";
+import "./Input.scss";
+import { Input, InputProps } from "antd";
 
-const helperTextMap = {
-  "": undefined,
-  error: "danger",
+export interface InputTextProps extends InputProps {
+    /**
+     * 
+     */
+}
+
+const InputText:React.FC<InputTextProps> = (props: InputTextProps) => {
+  return <Input type="text" {...props} />;
 };
 
-const Input = ({ label, helperText, status = "", ...rest }: InputProps) => {
-  const { token } = theme.useToken();
-
-  return (
-    <>
-      {label && <StyledLabel token={token}>{label}</StyledLabel>}
-
-      <AntdInput status={status} {...rest} />
-
-      {helperText && (
-        <StyledCaption caption type={helperTextMap[status] || status}>
-          {helperText}
-        </StyledCaption>
-      )}
-    </>
-  );
-};
-
-Input.displayName = "Input";
-export default Input;
+export default InputText;
